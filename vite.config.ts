@@ -11,6 +11,12 @@ export default defineConfig({
     vue(),
     legacy()
   ],
+  optimizeDeps: {
+    include: [
+      "vue-google-maps-community-fork",
+      "fast-deep-equal",
+    ],
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import VueGoogleMaps from 'vue-google-maps-community-fork'
 
 import { IonicVue } from '@ionic/vue';
 
@@ -36,8 +37,14 @@ import './theme/variables.css';
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
-
+  .use(router)
+.use(VueGoogleMaps, {
+  load: {
+    key: '', // TODO set your key here
+    libraries: ['places'],
+    loading: 'async'
+  },
+})
 router.isReady().then(() => {
   app.mount('#app');
 });
